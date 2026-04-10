@@ -6,30 +6,28 @@ html {
   accent-color: var(--color-accent);
 }
 
-label,
 input,
-textarea,
-button {
-  display: block;
-}
-
-input,
-textarea,
-button {
+textarea {
   font: inherit;
   padding: 0.5em;
   width: 100%;
   box-sizing: border-box;
 }
 
+button {
+  grid-column: 1 / -1;
+  font: inherit;
+  padding: 0.5em;
+}
+
 label {
-  margin-block: 0.5em;
+  display: contents;
 }
 
 form {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1em;
 }
 
 body {
