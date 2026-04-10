@@ -5,12 +5,33 @@
 html {
   accent-color: var(--color-accent);
 }
+
+label,
+input,
+textarea,
+button {
+  display: block;
+}
+
 input,
 textarea,
 button {
   font: inherit;
   padding: 0.5em;
+  width: 100%;
+  box-sizing: border-box;
 }
+
+label {
+  margin-block: 0.5em;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
 body {
     /* Set line height to 1.5 times the font size
          and use the OS’s UI font as the website font
