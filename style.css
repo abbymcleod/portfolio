@@ -7,3 +7,17 @@ body {
     margin-inline: auto;
     padding: 10px;
   }
+nav {
+  display: flex;
+  border-bottom: 1px;
+}
+
+nav a {
+  flex: 1;
+  text-align: center;
+}
+
+nav a.current {
+  font-weight: bold;
+  border-bottom: 2px solid black;
+}
