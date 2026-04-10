@@ -66,8 +66,9 @@ nav a:hover {
 
 .projects {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(20em, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));
   gap: 1em;
+  width: 100%;
 }
 
 .projects article {
