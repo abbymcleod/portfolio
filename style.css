@@ -168,10 +168,8 @@ body {
   position: relative;
 }
 
-label {
-  display: contents;
-}
 .color-scheme {
+  display: inline-block;
   position: absolute;
   top: 1rem;
   right: 1rem;
