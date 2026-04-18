@@ -1,3 +1,7 @@
+html {
+  color-scheme: light dark;
+}
+
 :root {
   --color-accent: oklch(70% 40% 310);
 }
@@ -158,4 +162,15 @@ h1, h2, h3, h4, h5, h6 {
 
 .resume-section p {
   margin: 0;
+}
+
+.color-scheme {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 0.8em;
+}
+
+.color-scheme select {
+  font-family: inherit;
 }
