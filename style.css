@@ -47,6 +47,7 @@ nav {
   display: flex;
   margin-bottom: 1rem;
   border-bottom: 1px solid oklch(80% 3% 200);
+  padding-right: 12rem;
 }
 
 nav a {
@@ -169,7 +170,7 @@ body {
 }
 
 .color-scheme {
-  display: inline-block;
+  display: inline-flex;
   position: absolute;
   top: 1rem;
   right: 1rem;
