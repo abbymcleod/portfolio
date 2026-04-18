@@ -59,7 +59,7 @@ nav a {
 
 nav a.current {
   font-weight: bold;
-  border-bottom: 0.4em solif oklch(80% 3% 200);
+  border-bottom: 0.4em solid oklch(80% 3% 200);
   padding-bottom: 0.1em;
 }
 
@@ -167,6 +167,10 @@ h1, h2, h3, h4, h5, h6 {
 body {
   position: relative;
 }
+
+label {
+  display: contents;
+}
 .color-scheme {
   position: absolute;
   top: 1rem;
@@ -175,5 +179,5 @@ body {
 }
 
 .color-scheme select {
-  font-family: inherit;
+  font: inherit;
 }
