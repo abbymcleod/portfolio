@@ -9,7 +9,7 @@ let navLinks = $$("nav a");
 let currentLink = navLinks.find(
     (a) => 
         a.host === location.host && 
-        a.pathname.replace(/\/$/, "") === location.pathname.replace(/\/$/, "")
+        a.pathname === location.pathname
 );
 
-currentLink?.classlist.add('current');
+currentLink?.classList.add('current');
