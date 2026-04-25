@@ -55,20 +55,20 @@
     },
     {
       "title": "Predicting Protein Contect of Recipes",
-      "year": "2026",
+      "year": "2025",
       "image": "https://vis-society.github.io/labs/2/images/empty.svg",
       "description": "Built predictive model to find the protein content of recipes based on variety of engineered features and tags."
     },
     {
-      "title": "Accusamus sed non magnam?",
-      "year": "2026",
+      "title": "Attendance Tracking Pipeline",
+      "year": "2025",
       "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-      "description": "Illo itaque repellendus incidunt repudiandae laudantium quibusdam provident dolorem delectus, nostrum, ipsum a atque! Dolorum, ratione. Minima dolor, sunt recusandae libero cumque dignissimos dolores magnam aut nulla perspiciatis, deserunt consequuntur!"
+      "description": "Simplified Python-based attendance tracking system for 200+ person lecture course."
     },
     {
-      "title": "Saepe cum laudantium nisi.",
-      "year": "2026",
+      "title": "Photo Filtering",
+      "year": "2024",
       "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-      "description": "Ipsam quam nemo, neque ducimus eos harum repudiandae at quia enim, facere doloremque possimus similique quos? Porro in nostrum, corporis, itaque dolor tenetur praesentium cum eligendi laudantium fuga beatae natus."
+      "description": "Added filters to photos using python."
     }
   ]
