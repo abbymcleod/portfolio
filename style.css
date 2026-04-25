@@ -125,7 +125,8 @@ h1, h2, h3, h4, h5, h6 {
   border: 1px solid oklch(80% 3% 200);
   border-radius: 0.75rem;
   padding: 1rem;
-  background: oklch(98% 1% 0);
+  background: canvas;
+  color: canvastext;
 }
 
 .card-heading {
@@ -153,7 +154,8 @@ h1, h2, h3, h4, h5, h6 {
   border: 1px solid oklch(80% 3% 200);
   border-radius: 0.75rem;
   padding: 1rem;
-  background: white;
+  background: canvas;
+  color: canvastext;
 }
 
 .resume-section ul {
