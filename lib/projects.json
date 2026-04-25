@@ -48,10 +48,10 @@
       "description": "Developed a piepline to clean, analyze, and visualize experimental virtual reality data to support lab research on top-down processing."
     },
     {
-      "title": "Esse aut atque ullam.",
+      "title": "VR Path Alignment Analysis",
       "year": "2026",
       "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-      "description": "Voluptatum officiis omnis nam illo necessitatibus sequi quasi, sapiente harum perferendis beatae, cumque deleniti, velit cum nobis et. Dignissimos fugiat pariatur quisquam beatae iste expedita eum molestias dicta quia accusantium!"
+      "description": "Analyzed VR walkthrough vs retrace paths using resampling and transformation techniques to compare spatial navigation accuracy."
     },
     {
       "title": "Optio sunt inventore voluptate?",
