@@ -1,61 +1,73 @@
 [
     {
-      "title": "Lorem ipsum dolor sit.",
+      "title": "The Health Halo Fallacy",
+      "year": "2026",
       "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-      "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fuga, facilis! Impedit error, corporis ipsa labore obcaecati adipisci tempore, vel temporibus quidem iste itaque ab a quisquam qui omnis harum vitae."
+      "description": "Investigated whether packaged foods at perceived healthy grocery store, Whole Foods, are truly healthy."
     },
     {
-      "title": "Natus sapiente obcaecati mollitia!",
+      "title": "NYPD `Bad Apples`",
+      "year": "2026",
       "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-      "description": "Incidunt dolorem natus asperiores voluptates, dicta illum. Eligendi cupiditate laboriosam consequatur aperiam nobis non reiciendis, consectetur officia vero assumenda nihil amet, tenetur ad ex ab excepturi illo magni ducimus ullam."
+      "description": "Brutality allegations in the NYPD can be attributed to a few bad officers, according to this data, and several deceptive techniques."
     },
     {
-      "title": "Pariatur dolorem debitis nostrum.",
+      "title": "Systemic Brutality in the NYPD",
+      "year": "2026",
       "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-      "description": "Ipsum eos nisi quaerat harum tempore eum voluptate possimus, laudantium sunt natus ut, tempora nostrum, quas at quasi magnam unde aut non ab est atque ipsa maxime qui obcaecati! Debitis?"
+      "description": "Police brutality is a systemic issue in the NYPD."
     },
     {
-      "title": "Eum, voluptatum ad. Ipsam!",
+      "title": "Regional Sleep Deserts: How and Why Do They Exist?",
+      "year": "2025",
       "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-      "description": "Repellendus sapiente consectetur, quod officia saepe facilis pariatur illum. Ratione quaerat tempora suscipit culpa aut quisquam odio perspiciatis laborum. Temporibus cum, voluptatum modi doloremque rerum nulla qui? Provident, possimus doloremque."
+      "description": "Investigated what factors are the biggest indicators of regional sleep deserts."
     },
     {
-      "title": "Ullam itaque vel porro?",
+      "title": "Happiness Index in Rural vs Urban Areas",
+      "year": "2024",
       "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-      "description": "Accusantium dolores voluptas porro laboriosam facilis ab odio unde similique voluptatum ut quis ea facere, amet sed possimus. Facilis tempore, magnam voluptatem perferendis aspernatur fugiat quas sit! Eaque, placeat quae!"
+      "description": "Studied the difference in resident happiness between rural and urban landscapes across the world."
     },
     {
-      "title": "Ipsa architecto est aspernatur!",
+      "title": "Detecting Drowsy vs Alert Drivers From EEG Signal Data",
+      "year": "2026",
       "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-      "description": "Similique saepe reiciendis iusto, perspiciatis nemo aliquam iure rem, provident ex ipsum vero laborum repellat veritatis rerum est adipisci dicta cumque ut, maxime blanditiis harum minus. Voluptas molestiae blanditiis delectus."
+      "description": "Detected differences in the theta/beta ratio of drowsy and alert drivers."
     },
     {
-      "title": "Explicabo, facilis necessitatibus! Est.",
+      "title": "A/B Testing of Advertisement Effectiveness",
+      "year": "2026",
       "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-      "description": "Quisquam illum dignissimos temporibus modi unde itaque enim id, minus quae doloribus illo voluptatem ratione praesentium, repudiandae molestiae velit cupiditate aut delectus aliquam pariatur harum mollitia soluta repellat maiores. Saepe."
+      "description": "Used A/B hypotheiss testing to determine the casual impact of digital advertisements."
     },
     {
-      "title": "Aliquam possimus velit totam.",
+      "title": "VR Data Cleaning & Analysis",
+      "year": "2026",
       "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-      "description": "Debitis, minima iste minus consequatur qui nesciunt cupiditate ab ea commodi, aut aspernatur eveniet odit modi, nulla officiis saepe asperiores? Pariatur, expedita explicabo. Atque doloremque deleniti assumenda molestias at similique."
+      "description": "Developed a piepline to clean, analyze, and visualize experimental virtual reality data to support lab research on top-down processing."
     },
     {
       "title": "Esse aut atque ullam.",
+      "year": "2026",
       "image": "https://vis-society.github.io/labs/2/images/empty.svg",
       "description": "Voluptatum officiis omnis nam illo necessitatibus sequi quasi, sapiente harum perferendis beatae, cumque deleniti, velit cum nobis et. Dignissimos fugiat pariatur quisquam beatae iste expedita eum molestias dicta quia accusantium!"
     },
     {
       "title": "Optio sunt inventore voluptate?",
+      "year": "2026",
       "image": "https://vis-society.github.io/labs/2/images/empty.svg",
       "description": "Iusto quia nesciunt qui dolor obcaecati. Necessitatibus, repellat. Eos ipsum quaerat aut aliquam nulla doloremque praesentium deleniti, odio voluptatem rerum magni, provident harum aspernatur qui architecto necessitatibus, quae dolore possimus."
     },
     {
       "title": "Accusamus sed non magnam?",
+      "year": "2026",
       "image": "https://vis-society.github.io/labs/2/images/empty.svg",
       "description": "Illo itaque repellendus incidunt repudiandae laudantium quibusdam provident dolorem delectus, nostrum, ipsum a atque! Dolorum, ratione. Minima dolor, sunt recusandae libero cumque dignissimos dolores magnam aut nulla perspiciatis, deserunt consequuntur!"
     },
     {
       "title": "Saepe cum laudantium nisi.",
+      "year": "2026",
       "image": "https://vis-society.github.io/labs/2/images/empty.svg",
       "description": "Ipsam quam nemo, neque ducimus eos harum repudiandae at quia enim, facere doloremque possimus similique quos? Porro in nostrum, corporis, itaque dolor tenetur praesentium cum eligendi laudantium fuga beatae natus."
     }
