@@ -87,10 +87,10 @@ nav a:hover {
 }
 
 .project-year {
+  margin: 0;
   font-family: Baskerville, serif;
   font-size: 0.9rem;
   color: #666;
-  margin: 0;
 }
 
 h1 {
