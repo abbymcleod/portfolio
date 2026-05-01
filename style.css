@@ -71,7 +71,7 @@ nav a:hover {
 
 .projects {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(20em, 1fr));
   gap: 1em;
   width: 100%;
 }
@@ -79,7 +79,7 @@ nav a:hover {
 .projects article {
   display: grid;
   grid-template-rows: subgrid;
-  grid-row: span 3;
+  grid-row: span 4;
 }
 
 .projects h2 {
