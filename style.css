@@ -221,6 +221,7 @@ body {
   margin-block: 1em;
   border: 1px solid var(--border, #ccc);
   list-style: none;
+  flex: 1;
 }
 
 .legend-item {
