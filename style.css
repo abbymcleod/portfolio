@@ -236,3 +236,9 @@ body {
   background-color: var(--color);
   border-radius: 50%;
 }
+
+.container {
+  display: flex;
+  align-items: center;
+  gap: 2em;
+}
