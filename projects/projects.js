@@ -13,10 +13,9 @@ arcs.forEach((arc, idx) => {
   d3.select('svg')
     .append('path')
     .attr('d', arc)
-    .attr('fill', colors[idx]);
+    .attr('fill', colors(idx));
 });
 
-d3.select('svg').append('path').attr('d', arc).attr('fill', 'red');
 const projects = await fetchJSON('../lib/projects.json');
 const projectsContainer = document.querySelector('.projects');
 renderProjects(projects, projectsContainer, 'h2');
