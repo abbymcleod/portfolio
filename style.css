@@ -71,7 +71,7 @@ nav a:hover {
 
 .projects {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(20em, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
   gap: 1em;
   width: 100%;
 }
@@ -80,6 +80,13 @@ nav a:hover {
   display: grid;
   grid-template-rows: subgrid;
   grid-row: span 4;
+  border: 1px solid oklch(80% 3% 200);
+  border-radius: 0.75rem;
+  padding: 1rem;
+  background: canvas;
+  color: canvastext;
+  min-width: 0; /* prevents overflow */
+  overflow: hidden;
 }
 
 .projects h2 {
@@ -149,15 +156,13 @@ h1, h2, h3, h4, h5, h6 {
   color: oklch(45% 3% 260);
 }
 
-.skills-grid,
-.projects {
+.skills-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
   gap: 1rem;
 }
 
-.skills-grid article,
-.projects article {
+.skills-grid article {
   border: 1px solid oklch(80% 3% 200);
   border-radius: 0.75rem;
   padding: 1rem;
