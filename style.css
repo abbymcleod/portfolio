@@ -213,6 +213,23 @@ body {
   overflow: visible;
 }
 
+#projects-pie-plot path {
+  cursor: pointer;
+  transition: 300ms;
+}
+
+#projects-pie-plot:has(path:hover) path:not(:hover) {
+  opacity: 0.5;
+}
+
+.selected {
+  --color: oklch(60% 45% 0) !important;
+
+  &:is(path) {
+    fill: var(--color);
+  }
+}
+
 .legend {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(9em, 1fr));
