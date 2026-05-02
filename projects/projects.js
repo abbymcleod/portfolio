@@ -85,5 +85,5 @@ searchInput.addEventListener('input', (event) => {
   });
   selectedIndex = -1;
   renderProjects(currentProjects, projectsContainer, 'h2');
-  renderPieChart(currentProjects);
+  renderPieChart(projects);
 });
