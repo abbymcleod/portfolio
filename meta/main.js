@@ -135,6 +135,11 @@ function renderCommitInfo(data, commits) {
   
     const yScale = d3.scaleLinear().domain([0, 24]).range([usableArea.bottom, usableArea.top]);
 
+    const [minLines, maxLines] = d3.extent(commits, (d) => d.totalLines);
+    const rScale = d3.scaleSqrt().domain([minLines, maxLines]).range([2, 30]);
+  
+    const sortedCommits = d3.sort(commits, (d) => -d.totalLines);
+
     const gridlines = svg
         .append('g')
         .attr('class', 'gridlines')
@@ -159,11 +164,12 @@ function renderCommitInfo(data, commits) {
     svg
         .append('g')
         .attr('transform', `translate(0, ${usableArea.bottom})`)
-        .call(xAxis);
+        .call(d3.axisBottom(xScale));
     svg
         .append('g')
         .attr('transform', `translate(${usableArea.left}, 0)`)
-        .call(yAxis);
+        .call(d3.axisLeft(yScale)
+            .tickFormat((d) => String(d % 24).padStart(2, '0') + ':00'));
 
     const dots = svg.append('g').attr('class', 'dots');
   
@@ -176,11 +182,13 @@ function renderCommitInfo(data, commits) {
       .attr('r', 5)
       .attr('fill', 'steelblue')
       .on('mouseenter', (event, commit) => {
+        d3.select(event.currentTarget).style('fill-opacity', 1);
         renderTooltipContent(commit);
         updateTooltipVisibility(true);
         updateTooltipPosition(event);
       })
       .on('mouseleave', () => {
+        d3.select(event.currentTarget).style('fill-opacity', 0.7);
         updateTooltipVisibility(false);
     });
 }
