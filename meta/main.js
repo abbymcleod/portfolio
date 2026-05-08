@@ -152,7 +152,22 @@ function renderCommitInfo(data, commits) {
       .attr('cx', (d) => xScale(d.datetime))
       .attr('cy', (d) => yScale(d.hourFrac))
       .attr('r', 5)
-      .attr('fill', 'steelblue');
+      .attr('fill', 'steelblue')
+      .on('mouseenter', (event, commit) => {
+        renderTooltipContent(commit);
+      })
+      .on('mouseleave', () => {
+  });
+
+  function renderTooltipContent(commit) {
+    if (Object.keys(commit).length === 0) return;
+  
+    document.getElementById('commit-link').href = commit.url;
+    document.getElementById('commit-link').textContent = commit.id;
+    document.getElementById('commit-date').textContent = commit.datetime?.toLocaleString('en', { dateStyle: 'full' });
+    document.getElementById('commit-time').textContent = commit.datetime?.toLocaleString('en', { timeStyle: 'short' });
+    document.getElementById('commit-author').textContent = commit.author;
+    document.getElementById('commit-lines').textContent = commit.totalLines;
   }
 
 let data = await loadData();

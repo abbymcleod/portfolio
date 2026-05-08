@@ -295,3 +295,42 @@ body {
 .gridlines .domain {
   display: none;
 }
+
+dl.info {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.25em 1em;
+  margin: 0;
+}
+
+dl.info dt {
+  color: oklch(45% 3% 260);
+  font-size: 0.85em;
+  font-weight: normal;
+}
+
+dl.info dd {
+  margin: 0;
+  font-weight: bold;
+}
+
+.tooltip {
+  position: fixed;
+  top: 1em;
+  left: 1em;
+  background: canvas;
+  border: 1px solid oklch(80% 3% 200);
+  border-radius: 0.5em;
+  padding: 1em;
+  box-shadow: 0 2px 8px oklch(0% 0% 0% / 15%);
+}
+
+circle {
+  transition: 200ms;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+circle:hover {
+  transform: scale(1.5);
+}
