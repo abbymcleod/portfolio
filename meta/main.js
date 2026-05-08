@@ -85,6 +85,28 @@ function renderCommitInfo(data, commits) {
     dl.append('dd').text(maxPeriod);
   }
 
+  function renderTooltipContent(commit) {
+    if (Object.keys(commit).length === 0) return;
+  
+    document.getElementById('commit-link').href = commit.url;
+    document.getElementById('commit-link').textContent = commit.id;
+    document.getElementById('commit-date').textContent = commit.datetime?.toLocaleString('en', { dateStyle: 'full' });
+    document.getElementById('commit-time').textContent = commit.datetime?.toLocaleString('en', { timeStyle: 'short' });
+    document.getElementById('commit-author').textContent = commit.author;
+    document.getElementById('commit-lines').textContent = commit.totalLines;
+  }
+
+  function updateTooltipVisibility(isVisible) {
+    const tooltip = document.getElementById('commit-tooltip');
+    tooltip.hidden = !isVisible;
+  }
+  
+  function updateTooltipPosition(event) {
+    const tooltip = document.getElementById('commit-tooltip');
+    tooltip.style.left = `${event.clientX}px`;
+    tooltip.style.top = `${event.clientY}px`;
+  }
+
   function renderScatterPlot(data, commits) {
     const width = 1000;
     const height = 600;
@@ -155,21 +177,13 @@ function renderCommitInfo(data, commits) {
       .attr('fill', 'steelblue')
       .on('mouseenter', (event, commit) => {
         renderTooltipContent(commit);
+        updateTooltipVisibility(true);
+        updateTooltipPosition(event);
       })
       .on('mouseleave', () => {
+        updateTooltipVisibility(false);
     });
 }
-
-  function renderTooltipContent(commit) {
-    if (Object.keys(commit).length === 0) return;
-  
-    document.getElementById('commit-link').href = commit.url;
-    document.getElementById('commit-link').textContent = commit.id;
-    document.getElementById('commit-date').textContent = commit.datetime?.toLocaleString('en', { dateStyle: 'full' });
-    document.getElementById('commit-time').textContent = commit.datetime?.toLocaleString('en', { timeStyle: 'short' });
-    document.getElementById('commit-author').textContent = commit.author;
-    document.getElementById('commit-lines').textContent = commit.totalLines;
-  }
 
 let data = await loadData();
 let commits = processCommits(data);

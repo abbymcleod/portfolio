@@ -301,6 +301,13 @@ dl.info {
   grid-template-columns: auto 1fr;
   gap: 0.25em 1em;
   margin: 0;
+  transition-duration: 500ms;
+  transition-property: opacity, visibility;
+}
+
+dl.info[hidden]:not(:hover, :focus-within) {
+  opacity: 0;
+  visibility: hidden;
 }
 
 dl.info dt {
@@ -316,13 +323,12 @@ dl.info dd {
 
 .tooltip {
   position: fixed;
-  top: 1em;
-  left: 1em;
-  background: canvas;
+  background: oklch(98% 1% 260 / 85%);
+  backdrop-filter: blur(4px);
   border: 1px solid oklch(80% 3% 200);
-  border-radius: 0.5em;
+  border-radius: 0.75em;
   padding: 1em;
-  box-shadow: 0 2px 8px oklch(0% 0% 0% / 15%);
+  box-shadow: 0 4px 12px oklch(0% 0% 0% / 15%);
 }
 
 circle {
