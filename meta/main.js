@@ -113,6 +113,22 @@ function renderCommitInfo(data, commits) {
   
     const yScale = d3.scaleLinear().domain([0, 24]).range([usableArea.bottom, usableArea.top]);
 
+    const gridlines = svg
+        .append('g')
+        .attr('class', 'gridlines')
+        .attr('transform', `translate(${usableArea.left}, 0)`);
+
+    gridlines.call(
+        d3.axisLeft(yScale).tickFormat('').tickSize(-usableArea.width)
+    );
+
+    gridlines.selectAll('line').attr('stroke', (d) => {
+        if (d >= 6 && d < 12) return 'oklch(75% 30% 80)';   // morning - warm yellow
+        if (d >= 12 && d < 18) return 'oklch(70% 25% 60)';  // afternoon - orange
+        if (d >= 18 && d < 21) return 'oklch(60% 20% 300)'; // evening - purple
+        return 'oklch(50% 20% 250)';                         // night - blue
+      });
+
     const xAxis = d3.axisBottom(xScale);
     const yAxis = d3
       .axisLeft(yScale)
