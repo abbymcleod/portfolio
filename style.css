@@ -265,3 +265,24 @@ body {
   align-items: center;
   gap: 2em;
 }
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(10em, 1fr));
+  gap: 0.5rem;
+  text-align: center;
+}
+
+.stats dt {
+  grid-row: 1;
+  font-weight: bold;
+  font-size: 0.85rem;
+  color: oklch(45% 3% 260);
+}
+
+.stats dd {
+  grid-row: 2;
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
