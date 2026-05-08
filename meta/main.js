@@ -157,7 +157,8 @@ function renderCommitInfo(data, commits) {
         renderTooltipContent(commit);
       })
       .on('mouseleave', () => {
-  });
+    });
+}
 
   function renderTooltipContent(commit) {
     if (Object.keys(commit).length === 0) return;
