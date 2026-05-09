@@ -46,20 +46,16 @@ function processCommits(data) {
 function renderCommitInfo(data, commits) {
     const dl = d3.select('#stats').append('dl').attr('class', 'stats');
   
-    // Total LOC
     dl.append('dt').html('Total <abbr title="Lines of code">LOC</abbr>');
     dl.append('dd').text(data.length);
   
-    // Total commits
     dl.append('dt').text('Total commits');
     dl.append('dd').text(commits.length);
   
-    // Number of files
     const numFiles = d3.group(data, (d) => d.file).size;
     dl.append('dt').text('Files');
     dl.append('dd').text(numFiles);
   
-    // Average file length
     const fileLengths = d3.rollups(
       data,
       (v) => d3.max(v, (v) => v.line),
@@ -69,12 +65,10 @@ function renderCommitInfo(data, commits) {
     dl.append('dt').text('Avg file length');
     dl.append('dd').text(avgFileLength + ' lines');
   
-    // Maximum depth
     const maxDepth = d3.max(data, (d) => d.depth);
     dl.append('dt').text('Max depth');
     dl.append('dd').text(maxDepth);
   
-    // Time of day most work is done
     const workByPeriod = d3.rollups(
       commits,
       (v) => v.length,
@@ -111,16 +105,16 @@ function renderCommitInfo(data, commits) {
     const width = 1000;
     const height = 600;
     const margin = { top: 10, right: 10, bottom: 30, left: 20 };
-
+  
     const usableArea = {
-        top: margin.top,
-        right: width - margin.right,
-        bottom: height - margin.bottom,
-        left: margin.left,
-        width: width - margin.left - margin.right,
-        height: height - margin.top - margin.bottom,
-      };
-
+      top: margin.top,
+      right: width - margin.right,
+      bottom: height - margin.bottom,
+      left: margin.left,
+      width: width - margin.left - margin.right,
+      height: height - margin.top - margin.bottom,
+    };
+  
     const svg = d3
       .select('#chart')
       .append('svg')
@@ -133,65 +127,67 @@ function renderCommitInfo(data, commits) {
       .range([usableArea.left, usableArea.right])
       .nice();
   
-    const yScale = d3.scaleLinear().domain([0, 24]).range([usableArea.bottom, usableArea.top]);
-
+    const yScale = d3
+      .scaleLinear()
+      .domain([0, 24])
+      .range([usableArea.bottom, usableArea.top]);
+  
     const [minLines, maxLines] = d3.extent(commits, (d) => d.totalLines);
     const rScale = d3.scaleSqrt().domain([minLines, maxLines]).range([2, 30]);
   
     const sortedCommits = d3.sort(commits, (d) => -d.totalLines);
-
+  
     const gridlines = svg
-        .append('g')
-        .attr('class', 'gridlines')
-        .attr('transform', `translate(${usableArea.left}, 0)`);
-
+      .append('g')
+      .attr('class', 'gridlines')
+      .attr('transform', `translate(${usableArea.left}, 0)`);
+  
     gridlines.call(
-        d3.axisLeft(yScale).tickFormat('').tickSize(-usableArea.width)
+      d3.axisLeft(yScale).tickFormat('').tickSize(-usableArea.width)
     );
-
+  
     gridlines.selectAll('line').attr('stroke', (d) => {
-        if (d >= 6 && d < 12) return 'oklch(75% 30% 80)';   // morning - warm yellow
-        if (d >= 12 && d < 18) return 'oklch(70% 25% 60)';  // afternoon - orange
-        if (d >= 18 && d < 21) return 'oklch(60% 20% 300)'; // evening - purple
-        return 'oklch(50% 20% 250)';                         // night - blue
-      });
-
-    const xAxis = d3.axisBottom(xScale);
-    const yAxis = d3
-      .axisLeft(yScale)
-      .tickFormat((d) => String(d % 24).padStart(2, '0') + ':00');
-
+      if (d >= 6 && d < 12) return 'oklch(75% 30% 80)';
+      if (d >= 12 && d < 18) return 'oklch(70% 25% 60)';
+      if (d >= 18 && d < 21) return 'oklch(60% 20% 300)';
+      return 'oklch(50% 20% 250)';
+    });
+  
     svg
-        .append('g')
-        .attr('transform', `translate(0, ${usableArea.bottom})`)
-        .call(d3.axisBottom(xScale));
+      .append('g')
+      .attr('transform', `translate(0, ${usableArea.bottom})`)
+      .call(d3.axisBottom(xScale));
+  
     svg
-        .append('g')
-        .attr('transform', `translate(${usableArea.left}, 0)`)
-        .call(d3.axisLeft(yScale)
-            .tickFormat((d) => String(d % 24).padStart(2, '0') + ':00'));
-
+      .append('g')
+      .attr('transform', `translate(${usableArea.left}, 0)`)
+      .call(
+        d3.axisLeft(yScale)
+          .tickFormat((d) => String(d % 24).padStart(2, '0') + ':00')
+      );
+  
     const dots = svg.append('g').attr('class', 'dots');
   
     dots
       .selectAll('circle')
-      .data(commits)
+      .data(sortedCommits)
       .join('circle')
       .attr('cx', (d) => xScale(d.datetime))
       .attr('cy', (d) => yScale(d.hourFrac))
-      .attr('r', 5)
+      .attr('r', (d) => rScale(d.totalLines))
       .attr('fill', 'steelblue')
+      .style('fill-opacity', 0.7)
       .on('mouseenter', (event, commit) => {
         d3.select(event.currentTarget).style('fill-opacity', 1);
         renderTooltipContent(commit);
         updateTooltipVisibility(true);
         updateTooltipPosition(event);
       })
-      .on('mouseleave', () => {
+      .on('mouseleave', (event) => {
         d3.select(event.currentTarget).style('fill-opacity', 0.7);
         updateTooltipVisibility(false);
-    });
-}
+      });
+  }
 
 let data = await loadData();
 let commits = processCommits(data);
