@@ -268,9 +268,11 @@ body {
 
 .stats {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(10em, 1fr));
-  gap: 0.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(8em, 1fr));
+  gap: 1rem;
   text-align: center;
+  padding: 1em;
+  margin-block: 1em;
 }
 
 .stats dt {
@@ -278,6 +280,7 @@ body {
   font-weight: bold;
   font-size: 0.85rem;
   color: oklch(45% 3% 260);
+  text-wrap: balance;
 }
 
 .stats dd {
@@ -285,6 +288,7 @@ body {
   margin: 0;
   font-size: 1.5rem;
   font-weight: bold;
+  text-wrap: balance;
 }
 
 .gridlines line {
