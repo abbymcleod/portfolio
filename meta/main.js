@@ -321,8 +321,16 @@ function renderCommitInfo(data, commits) {
           }),
       );
   
-    filesContainer.select('dt > code').text((d) => d.name);
-    filesContainer.select('dd').text((d) => `${d.lines.length} lines`);
+    filesContainer.select('dt > code').html(
+      (d) => `${d.name} <small>${d.lines.length} lines</small>`
+    );
+  
+    filesContainer
+      .select('dd')
+      .selectAll('div')
+      .data((d) => d.lines)
+      .join('div')
+      .attr('class', 'loc');
   }
 
   let data = await loadData();
