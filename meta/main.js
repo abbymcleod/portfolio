@@ -302,6 +302,7 @@ function renderCommitInfo(data, commits) {
   }
 
   function updateFileDisplay(filteredCommits) {
+    let colors = d3.scaleOrdinal(d3.schemeTableau10);
     let lines = filteredCommits.flatMap((d) => d.lines);
     let files = d3
       .groups(lines, (d) => d.file)
@@ -331,7 +332,8 @@ function renderCommitInfo(data, commits) {
       .selectAll('div')
       .data((d) => d.lines)
       .join('div')
-      .attr('class', 'loc');
+      .attr('class', 'loc')
+      .attr('style', (d) => `--color: ${colors(d.type)}`); 
   }
 
   let data = await loadData();
