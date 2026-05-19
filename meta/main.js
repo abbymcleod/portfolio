@@ -253,13 +253,6 @@ function renderCommitInfo(data, commits) {
     svg.selectAll('.dots, .overlay ~ *').raise();
   }
 
-  function onTimeSliderChange() {
-    commitProgress = +document.getElementById('commit-progress').value;
-    commitMaxTime = timeScale.invert(commitProgress);
-    document.getElementById('commit-time').textContent =
-      commitMaxTime.toLocaleString('en-US', { dateStyle: 'long', timeStyle: 'short' });
-  }
-
   let data = await loadData();
   let commits = processCommits(data);
   
