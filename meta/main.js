@@ -307,7 +307,8 @@ function renderCommitInfo(data, commits) {
       .groups(lines, (d) => d.file)
       .map(([name, lines]) => {
         return { name, lines };
-      });
+      })
+      .sort((a,b) => b.lines.length - a.lines.length);
   
     let filesContainer = d3
       .select('#files')
