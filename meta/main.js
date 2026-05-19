@@ -314,7 +314,6 @@ function renderCommitInfo(data, commits) {
     .range([0, 100]);
   
   let commitMaxTime = timeScale.invert(commitProgress);
-
   let filteredCommits = commits;
   
   function onTimeSliderChange() {
@@ -326,8 +325,8 @@ function renderCommitInfo(data, commits) {
     updateScatterPlot(data, filteredCommits);
   }
   
-  document.getElementById('commit-progress').addEventListener('input', onTimeSliderChange);
-  onTimeSliderChange();
-  
   renderCommitInfo(data, commits);
   renderScatterPlot(data, commits);
+
+  document.getElementById('commit-progress').addEventListener('input', onTimeSliderChange);
+  onTimeSliderChange();
