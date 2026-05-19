@@ -426,3 +426,7 @@ circle.selected {
   bottom: auto;
   height: 50vh;
 }
+
+.step {
+  padding-bottom: 60vh;
+}
