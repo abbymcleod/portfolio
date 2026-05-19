@@ -85,7 +85,7 @@ function renderCommitInfo(data, commits) {
     document.getElementById('commit-link').href = commit.url;
     document.getElementById('commit-link').textContent = commit.id;
     document.getElementById('commit-date').textContent = commit.datetime?.toLocaleString('en', { dateStyle: 'full' });
-    document.getElementById('commit-time').textContent = commit.datetime?.toLocaleString('en', { timeStyle: 'short' });
+    document.getElementById('commit-tooltip-time').textContent = commit.datetime?.toLocaleString('en', { timeStyle: 'short' });
     document.getElementById('commit-author').textContent = commit.author;
     document.getElementById('commit-lines').textContent = commit.totalLines;
   }
@@ -253,7 +253,36 @@ function renderCommitInfo(data, commits) {
     svg.selectAll('.dots, .overlay ~ *').raise();
   }
 
-let data = await loadData();
-let commits = processCommits(data);
-renderCommitInfo(data, commits);
-renderScatterPlot(data, commits);
+  function onTimeSliderChange() {
+    commitProgress = +document.getElementById('commit-progress').value;
+    commitMaxTime = timeScale.invert(commitProgress);
+    document.getElementById('commit-time').textContent =
+      commitMaxTime.toLocaleString('en-US', { dateStyle: 'long', timeStyle: 'short' });
+  }
+
+  let data = await loadData();
+  let commits = processCommits(data);
+  
+  let commitProgress = 100;
+  
+  let timeScale = d3.scaleTime()
+    .domain([
+      d3.min(commits, (d) => d.datetime),
+      d3.max(commits, (d) => d.datetime),
+    ])
+    .range([0, 100]);
+  
+  let commitMaxTime = timeScale.invert(commitProgress);
+  
+  function onTimeSliderChange() {
+    commitProgress = +document.getElementById('commit-progress').value;
+    commitMaxTime = timeScale.invert(commitProgress);
+    document.getElementById('commit-time').textContent =
+      commitMaxTime.toLocaleString('en-US', { dateStyle: 'long', timeStyle: 'short' });
+  }
+  
+  document.getElementById('commit-progress').addEventListener('input', onTimeSliderChange);
+  onTimeSliderChange();
+  
+  renderCommitInfo(data, commits);
+  renderScatterPlot(data, commits);
