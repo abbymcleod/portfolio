@@ -1,4 +1,5 @@
 import * as d3 from 'https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm';
+import scrollama from 'https://cdn.jsdelivr.net/npm/scrollama@3.2.0/+esm';
 let xScale, yScale;
 async function loadData() {
   const data = await d3.csv('loc.csv', (row) => ({
@@ -40,7 +41,8 @@ function processCommits(data) {
       });
 
       return ret;
-    });
+    })
+    .sort((a, b) => a.datetime - b.datetime);
 }
 
 function renderCommitInfo(data, commits) {
@@ -392,3 +394,19 @@ function renderCommitInfo(data, commits) {
       Then I looked over all I had made, and I saw that it was very good.
     `,
   );
+
+  function onStepEnter(response) {
+    const commit = response.element.__data__;
+    commitMaxTime = commit.datetime;
+    filteredCommits = commits.filter((d) => d.datetime <= commitMaxTime);
+    updateScatterPlot(data, filteredCommits);
+    updateFileDisplay(filteredCommits);
+  }
+  
+  const scroller = scrollama();
+  scroller
+    .setup({
+      container: '#scrolly-1',
+      step: '#scrolly-1 .step',
+    })
+    .onStepEnter(onStepEnter);
