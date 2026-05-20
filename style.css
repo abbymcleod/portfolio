@@ -421,7 +421,7 @@ circle.selected {
 
 #scatter-plot {
   position: sticky;
-  top: 0;
+  top: 10vh;
   left: 0;
   bottom: auto;
   height: 50vh;
