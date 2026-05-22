@@ -465,6 +465,6 @@ circle.selected {
   justify-content: center;
 }
 
-.tick text {
-  font-size: 2 rem;
+#chart text {
+  font-size: 12px;
 }
