@@ -158,14 +158,18 @@ function renderCommitInfo(data, commits) {
     svg
       .append('g')
       .attr('transform', `translate(0, ${usableArea.bottom})`)
-      .attr('class', 'x-axis')  // ← add this
-      .call(d3.axisBottom(xScale));
+      .attr('class', 'x-axis')
+      .call(d3.axisBottom(xScale))
+      .selectAll('text')
+      .style('font-size', '14px');
   
     svg
       .append('g')
       .attr('transform', `translate(${usableArea.left}, 0)`)
-      .attr('class', 'y-axis')  // ← add this
-      .call(d3.axisLeft(yScale).tickFormat((d) => String(d % 24).padStart(2, '0') + ':00'));
+      .attr('class', 'y-axis') 
+      .call(d3.axisLeft(yScale).tickFormat((d) => String(d % 24).padStart(2, '0') + ':00'))
+      .selectAll('text')
+      .style('font-size', '14px');
     
     const dots = svg.append('g').attr('class', 'dots');
   
