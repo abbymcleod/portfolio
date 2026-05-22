@@ -12,13 +12,6 @@
   <h1>Meta</h1>
   <p>This page includes stats about the code of this website.</p>
 
-  <div style="display: flex; flex: 1; align-items: baseline;">
-    <label>
-      Show commits until:
-      <input type="range" id="commit-progress" min="0" max="100" value="100" />
-      <time id="commit-time"></time>
-    </label>
-  </div>
 
   <div id="stats"></div>
 
@@ -47,5 +40,13 @@
   </dl>
 
   <dl id="files"></dl>
+
+  <div id="scrolly-2">
+    <div id="files-story"></div>
+    <div id="files-plot">
+      <h2>File sizes over time</h2>
+      <dl id="files"></dl>
+    </div>
+  </div>
 </body>
 </html>
