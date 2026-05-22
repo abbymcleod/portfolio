@@ -464,3 +464,7 @@ circle.selected {
   flex-direction: column;
   justify-content: center;
 }
+
+.tick text {
+  font-size: 0.8rem;
+}
