@@ -453,3 +453,14 @@ circle.selected {
   flex-direction: column;
   justify-content: center;
 }
+
+#scatter-plot {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  max-height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
