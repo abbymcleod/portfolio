@@ -391,7 +391,6 @@ function renderCommitInfo(data, commits) {
           (d) => d.file,
         ).length
       } files.
-      Then I looked over all I had made, and I saw that it was very good.
     `,
   );
 
