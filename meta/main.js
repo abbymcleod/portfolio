@@ -161,7 +161,7 @@ function renderCommitInfo(data, commits) {
       .attr('class', 'x-axis')
       .call(d3.axisBottom(xScale))
       .selectAll('text')
-      .style('font-size', '16px');
+      .style('font-size', '16px')
       .attr('transform', 'rotate(-45)')
       .attr('text-anchor', 'end');
   
