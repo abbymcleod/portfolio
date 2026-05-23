@@ -123,67 +123,58 @@ function renderCommitInfo(data, commits) {
       .attr('viewBox', `0 0 ${width} ${height}`)
       .style('overflow', 'visible');
   
-    // xScale = d3
-    //   .scaleTime()
-    //   .domain(d3.extent(commits, (d) => d.datetime))
-    //   .range([usableArea.left, usableArea.right])
-    //   .nice();
-
-    const [minDate, maxDate] = d3.extent(commits, (d) => d.datetime);
-    const tickDates = d3.timeDay.range(minDate, maxDate, Math.floor(d3.timeDay.count(minDate, maxDate) / 5));
-
-    const xAxisGroup = svg
-      .append('g')
-      .attr('transform', `translate(0, ${usableArea.bottom})`)
-      .attr('class', 'x-axis')
-      .call(d3.axisBottom(xScale).tickValues(tickDates));
-
-    xAxisGroup.selectAll('text')
-      .attr('transform', 'rotate(-35)')
-      .attr('text-anchor', 'end')
-      .attr('dx', '-0.5em')
-      .attr('dy', '0.15em');
-  
+      xScale = d3
+      .scaleTime()
+      .domain(d3.extent(commits, (d) => d.datetime))
+      .range([usableArea.left, usableArea.right])
+      .nice();
+    
     yScale = d3
       .scaleLinear()
       .domain([0, 24])
       .range([usableArea.bottom, usableArea.top]);
-  
+    
     const [minLines, maxLines] = d3.extent(commits, (d) => d.totalLines);
     const rScale = d3.scaleSqrt().domain([minLines, maxLines]).range([2, 30]);
-  
+    
     const sortedCommits = d3.sort(commits, (d) => -d.totalLines);
-  
+    
     const gridlines = svg
       .append('g')
       .attr('class', 'gridlines')
       .attr('transform', `translate(${usableArea.left}, 0)`);
-  
+    
     gridlines.call(
       d3.axisLeft(yScale).tickFormat('').tickSize(-usableArea.width)
     );
-  
+    
     gridlines.selectAll('line').attr('stroke', (d) => {
       if (d >= 6 && d < 12) return 'oklch(75% 30% 80)';
       if (d >= 12 && d < 18) return 'oklch(70% 25% 60)';
       if (d >= 18 && d < 21) return 'oklch(60% 20% 300)';
       return 'oklch(50% 20% 250)';
     });
-  
-    svg
+    
+    const [minDate, maxDate] = d3.extent(commits, (d) => d.datetime);
+    const tickDates = d3.timeDay.range(minDate, maxDate, Math.floor(d3.timeDay.count(minDate, maxDate) / 5));
+    
+    const xAxisGroup = svg
       .append('g')
       .attr('transform', `translate(0, ${usableArea.bottom})`)
       .attr('class', 'x-axis')
-      .call(d3.axisBottom(xScale).ticks(5));
-
-  
+      .call(d3.axisBottom(xScale).tickValues(tickDates));
+    
+    xAxisGroup.selectAll('text')
+      .attr('transform', 'rotate(-35)')
+      .attr('text-anchor', 'end')
+      .attr('dx', '-0.5em')
+      .attr('dy', '0.15em');
+    
     svg
       .append('g')
       .attr('transform', `translate(${usableArea.left}, 0)`)
-      .attr('class', 'y-axis') 
-      .call(d3.axisLeft(yScale).tickFormat((d) => String(d % 24).padStart(2, '0') + ':00'))
-      .selectAll('text')
-      .style('font-size', '16px');
+      .attr('class', 'y-axis')
+      .call(d3.axisLeft(yScale).tickFormat((d) => String(d % 24).padStart(2, '0') + ':00'));
     
     const dots = svg.append('g').attr('class', 'dots');
   
