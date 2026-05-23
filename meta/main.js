@@ -162,6 +162,8 @@ function renderCommitInfo(data, commits) {
       .call(d3.axisBottom(xScale))
       .selectAll('text')
       .style('font-size', '16px');
+      .attr('transform', 'rotate(-45)')
+      .attr('text-anchor', 'end');
   
     svg
       .append('g')
