@@ -106,7 +106,7 @@ function renderCommitInfo(data, commits) {
   function renderScatterPlot(data, commits) {
     const width = 1000;
     const height = 600;
-    const margin = { top: 10, right: 30, bottom: 50, left: 60 };
+    const margin = { top: 10, right: 30, bottom: 100, left: 60 };
   
     const usableArea = {
       top: margin.top,
@@ -165,7 +165,6 @@ function renderCommitInfo(data, commits) {
       .call(d3.axisBottom(xScale).tickValues(tickDates));
     
     xAxisGroup.selectAll('text')
-      .each(function() { console.log('found text:', this); }) 
       .attr('transform', 'rotate(-35)')
       .attr('text-anchor', 'end')
       .attr('dx', '-0.5em')
