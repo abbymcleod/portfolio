@@ -159,7 +159,7 @@ function renderCommitInfo(data, commits) {
       .append('g')
       .attr('transform', `translate(0, ${usableArea.bottom})`)
       .attr('class', 'x-axis')
-      .call(d3.axisBottom(xScale).ticks(d3.timeWeek.every(4)))
+      .call(d3.axisBottom(xScale).ticks(8))
       .selectAll('text')
       .style('font-size', '16px')
 
