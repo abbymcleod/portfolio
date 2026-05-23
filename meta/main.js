@@ -165,6 +165,7 @@ function renderCommitInfo(data, commits) {
       .call(d3.axisBottom(xScale).tickValues(tickDates));
     
     xAxisGroup.selectAll('text')
+      .each(function() { console.log('found text:', this); }) 
       .attr('transform', 'rotate(-35)')
       .attr('text-anchor', 'end')
       .attr('dx', '-0.5em')
