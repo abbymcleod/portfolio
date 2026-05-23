@@ -161,7 +161,7 @@ function renderCommitInfo(data, commits) {
       .attr('class', 'x-axis')
       .call(d3.axisBottom(xScale))
       .selectAll('text')
-      .style('font-size', '14px');
+      .style('font-size', '16px');
   
     svg
       .append('g')
@@ -169,7 +169,7 @@ function renderCommitInfo(data, commits) {
       .attr('class', 'y-axis') 
       .call(d3.axisLeft(yScale).tickFormat((d) => String(d % 24).padStart(2, '0') + ':00'))
       .selectAll('text')
-      .style('font-size', '14px');
+      .style('font-size', '16px');
     
     const dots = svg.append('g').attr('class', 'dots');
   
