@@ -106,7 +106,7 @@ function renderCommitInfo(data, commits) {
   function renderScatterPlot(data, commits) {
     const width = 1000;
     const height = 600;
-    const margin = { top: 10, right: 30, bottom: 30, left: 60 };
+    const margin = { top: 10, right: 30, bottom: 50, left: 60 };
   
     const usableArea = {
       top: margin.top,
@@ -123,11 +123,26 @@ function renderCommitInfo(data, commits) {
       .attr('viewBox', `0 0 ${width} ${height}`)
       .style('overflow', 'visible');
   
-    xScale = d3
-      .scaleTime()
-      .domain(d3.extent(commits, (d) => d.datetime))
-      .range([usableArea.left, usableArea.right])
-      .nice();
+    // xScale = d3
+    //   .scaleTime()
+    //   .domain(d3.extent(commits, (d) => d.datetime))
+    //   .range([usableArea.left, usableArea.right])
+    //   .nice();
+
+    const [minDate, maxDate] = d3.extent(commits, (d) => d.datetime);
+    const tickDates = d3.timeDay.range(minDate, maxDate, Math.floor(d3.timeDay.count(minDate, maxDate) / 5));
+
+    const xAxisGroup = svg
+      .append('g')
+      .attr('transform', `translate(0, ${usableArea.bottom})`)
+      .attr('class', 'x-axis')
+      .call(d3.axisBottom(xScale).tickValues(tickDates));
+
+    xAxisGroup.selectAll('text')
+      .attr('transform', 'rotate(-35)')
+      .attr('text-anchor', 'end')
+      .attr('dx', '-0.5em')
+      .attr('dy', '0.15em');
   
     yScale = d3
       .scaleLinear()
