@@ -162,13 +162,11 @@ function renderCommitInfo(data, commits) {
       .append('g')
       .attr('transform', `translate(0, ${usableArea.bottom})`)
       .attr('class', 'x-axis')
-      .call(d3.axisBottom(xScale).tickValues(tickDates));
+      .call(d3.axisBottom(xScale)
+        .ticks(d3.timeWeek.every(2))
+        .tickFormat(d3.timeFormat('%b %d'))
+      );
     
-    xAxisGroup.selectAll('text')
-      .attr('transform', function() {
-        return `rotate(-35, ${this.getBBox().x}, ${this.getBBox().y})`;
-      })
-      .style('text-anchor', 'end');
     
     svg
       .append('g')
