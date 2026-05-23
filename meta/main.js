@@ -106,7 +106,7 @@ function renderCommitInfo(data, commits) {
   function renderScatterPlot(data, commits) {
     const width = 1000;
     const height = 600;
-    const margin = { top: 10, right: 30, bottom: 30, left: 50 };
+    const margin = { top: 10, right: 30, bottom: 30, left: 60 };
   
     const usableArea = {
       top: margin.top,
@@ -159,7 +159,7 @@ function renderCommitInfo(data, commits) {
       .append('g')
       .attr('transform', `translate(0, ${usableArea.bottom})`)
       .attr('class', 'x-axis')
-      .call(d3.axisBottom(xScale).ticks(d3.timeWeek.every(2)))
+      .call(d3.axisBottom(xScale).ticks(d3.timeWeek.every(3)))
       .selectAll('text')
       .style('font-size', '16px')
 
