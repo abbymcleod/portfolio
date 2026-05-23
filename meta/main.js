@@ -165,8 +165,9 @@ function renderCommitInfo(data, commits) {
       .call(d3.axisBottom(xScale).tickValues(tickDates));
     
     xAxisGroup.selectAll('text')
-      .style('transform', 'rotate(-35deg)')
-      .style('transform-origin', 'right center')
+      .attr('transform', function() {
+        return `rotate(-35, ${this.getBBox().x}, ${this.getBBox().y})`;
+      })
       .style('text-anchor', 'end');
     
     svg
